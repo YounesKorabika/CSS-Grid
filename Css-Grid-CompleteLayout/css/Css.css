@@ -1,0 +1,110 @@
+/*
+ display: grid;
+ grid-template-columns => [Number Of columns In] => [Px, %, auto, repeat(nbr culmns, size), fraction]
+ grid-template-rows => [number of rows height In] => [Px, %, auto, fr, repeat]
+ gap: [row gap][column gap]
+
+ */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: tourney;
+}
+
+.page {
+    height: 100vh;
+    background-color: #eee;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+        "logo nav nav nav nav"
+        "side cont cont cont cont "
+        "foot foot foot foot foot";
+    grid-template-rows: 60px auto 100px;
+}
+
+ul li {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: black;
+    padding: 10px;
+    transition-property: transform;
+    transition-duration: 1s;
+    position: relative;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 0px;
+    left: 0;
+    background-image: linear-gradient(to right, green, blue);
+}
+
+ul li::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-image: linear-gradient(to right, blue, green);
+}
+
+ul li:hover {
+    box-shadow: 0px 0px 10px 2px white inset;
+    cursor: pointer;
+    transform: rotate3d(10deg, 10deg, 15deg);
+}
+
+h2 {
+    grid-area: logo;
+    background-color: blue;
+    color: whitesmoke;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+ul {
+    list-style: none;
+}
+
+nav {
+    grid-area: nav;
+    background-color: red;
+    color: white;
+    display: grid;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+section {
+    grid-area: cont;
+    background-color: yellow;
+    display: grid;
+    color: blue;
+    justify-content: center;
+    align-content: center;
+}
+
+aside {
+    grid-area: side;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: green;
+    color: white;
+}
+
+footer {
+    grid-area: foot;
+    background-color: black;
+    color: rgb(89, 231, 18);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
